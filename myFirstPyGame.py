@@ -1,4 +1,4 @@
-# My First PyGame, Alyssa Murrie, 12/1/21 2:116, v0.7
+# My First PyGame, Alyssa Murrie, 12/1/21 2:36, v0.9
 
 import pygame, sys
 from pygame.locals import * 
@@ -47,6 +47,19 @@ pygame.draw.ellipse(windowSurface, WHITE, (300, 250, 40, 80), 1)
 pygame.draw.rect(windowSurface, BLACK, (textRect.left - 20, textRect.top - 20, textRect.width + 40, textRect.height + 40))
 
 # Create Pixel Array 
-pixArray = pygame.pixelArray(windowSurface)
+pixArray = pygame.PixelArray(windowSurface)
 pixArray[480][380] = GREEN
 del pixArray
+
+# Draw the text onto the surface.
+windowSurface.blit(text, textRect)
+
+# Update Pygame Display
+pygame.display.update()
+
+# Run game loop.
+while True:
+     for event in pygame.event.get():
+         if event.type == QUIT: 
+             pygame.quit()
+             sys.exit()
